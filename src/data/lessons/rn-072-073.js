@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Tooling',
   theme: 'Metro',
   whyItMatters:
-    'RN 项目的打包器不是 Webpack/Vite，而是 Metro。随着 npm 生态越来越依赖 package exports、workspace、symlink 和 monorepo，Metro 能否正确解析包，直接决定大型项目能否稳定开发。0.72/0.73 让 RN 更靠近现代包分发规则，也让“依赖解析”成为每个 RN 工程师必须掌握的底层知识。',
+    'RN 项目的打包器不是 Webpack/Vite，而是 Metro。随着 npm 生态越来越依赖 package exports、workspace、symlink 和 monorepo，Metro 能否正确解析包，直接决定大型项目能否稳定开发。0.72/0.73 让 RN 更靠近现代包分发规则，也让"依赖解析"成为每个 RN 工程师必须掌握的底层知识。\n\nMetro 的核心职责包括：1) 模块解析（module resolution）：在 node_modules 中查找模块；2) 依赖图构建（dependency graph）：递归收集所有依赖；3) 代码转换（transformation）：通过 babel 等工具转换代码；4) Bundle 分割（bundle splitting）：生成多个入口对应的 bundles；5) 缓存管理（caching）：增量编译。其中模块解析是最容易出问题的地方。',
   features: [
     {
       title: 'Package Exports',
-      body: 'package.json 的 exports 字段允许包作者明确暴露哪些入口。Metro 支持它之后，现代库更容易在 RN 中工作；但它也会让过去依赖内部路径的 deep import 失效或解析到不同文件。'
+      body: 'package.json 的 exports 字段允许包作者明确暴露哪些入口。Metro 支持它之后，现代库更容易在 RN 中工作；但它也会让过去依赖内部路径的 deep import 失效或解析到不同文件。\n\nExports 的关键作用：1) 树摇：打包工具只 bundle 导出的内容，剔除内部实现和 dead code；2) API 边界清晰：包作者控制哪些 API 稳定，哪些是内部的；3) 平台差异：可以为 react-native、browser 等指定不同入口；4) 重定向：比如 /theme 可以映射到不同文件；5) 版本兼容：通过 exports 做渐进式 API 迁移。'
     },
     {
       title: 'Stable symlink support',
-      body: 'workspace 常通过 symlink 连接本地包。稳定 symlink 支持让 monorepo 中的 app、design system、shared utils 能更自然地协作，减少复制包、手写 alias 和 watch 配置的脆弱方案。'
+      body: 'workspace 常通过 symlink 连接本地包。稳定 symlink 支持让 monorepo 中的 app、design system、shared utils 能更自然地协作，减少复制包、手写 alias 和 watch 配置的脆弱方案。\n\nSymlink 的问题包括：1) 循环依赖：A → B → A 的 symlink 导致无限递归；2) 缓存失效：Metro 的缓存可能跟不上 symlink 更新；3) Node 解析差异：symlink 的真实路径和指向路径可能被不同对待；4) 权限问题：某些环境不支持 symlink。0.72+ 改进了这些场景的处理。'
     },
     {
       title: '调试改进',
-      body: 'Metro 报错质量会影响排障速度。解析失败、重复 React、平台文件选择、source map 和 transform cache 都可能让问题看起来像业务 bug。更好的调试基础能帮助你先定位构建层，而不是误改业务代码。'
+      body: 'Metro 报错质量会影响排障速度。解析失败、重复 React、平台文件选择、source map 和 transform cache 都可能让问题看起来像业务 bug。更好的调试基础能帮助你先定位构建层，而不是误改业务代码。\n\n调试工具包括：1) react-native config：查看 CLI 发现的配置；2) Metro 的 debug logs：--verbose 输出详细的解析过程；3) 手动 resolve：npx metro-resolver 模拟解析；4) 依赖图可视化：某些工具可以展示完整的依赖关系。'
     },
     {
       title: '平台入口选择',
-      body: 'RN 支持 .ios.js、.android.js、.native.js 等平台扩展。和 exports 结合后，包作者需要明确平台入口，应用作者也要理解 resolver 最终选中了哪个文件。'
+      body: 'RN 支持 .ios.js、.android.js、.native.js 等平台扩展。和 exports 结合后，包作者需要明确平台入口，应用作者也要理解 resolver 最终选中了哪个文件。\n\n平台解析的规则：1) 扩展优先级：.ios.js > .native.js > .js；2) 目录也支持平台后缀；3) exports 和 platform extension 的组合需要谨慎设计，避免解析到错误的平台版本；4) 某些库在某个平台没有实现时，需要明确的 fallback 逻辑。'
     }
   ],
   deepDive: [
@@ -40,7 +40,18 @@ export const lesson = {
       items: [
         '检查包的 package.json：main、module、react-native、exports 字段分别指向哪里。',
         '确认 Metro watchFolders 覆盖 workspace 源码，同时 blockList/extraNodeModules 没有制造重复依赖。',
-        '清理 Metro cache 只能作为验证步骤；根因通常是入口、版本或依赖树。'
+        '清理 Metro cache 只能作为验证步骤；根因通常是入口、版本或依赖树。',
+        '重复的 React 问题最常见：npm ls react 看是否出现多个版本。Monorepo 需要在 root package.json 中明确 resolutions。',
+        'Watch 监听失败导致热更新不工作：确认文件变更时 Metro 的 watch list 包含该文件，某些 IDE 的保存机制可能不会触发 fs watch。'
+      ]
+    },
+    {
+      title: 'Metro 配置陷阱',
+      items: [
+        'projectRoot 和 watchFolders 配置不当导致文件找不到或监听范围错误。',
+        'transformer 配置可能影响非 JS 文件（如 JSON）的处理，导致 import json 报错。',
+        'resolver 的 blockList 用于排除某些文件或目录，但过宽会导致无意中屏蔽需要的文件。',
+        'getTransformOptions 返回的选项会影响每个文件的转换，不当使用导致某些模块无法正确编译。'
       ]
     }
   ],
