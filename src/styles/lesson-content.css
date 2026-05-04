@@ -1,0 +1,283 @@
+.tab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 8px;
+  border: 1px solid #d9dfd5;
+  border-radius: 8px;
+  background: rgba(246, 247, 241, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #53615d;
+  font-weight: 800;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  background: #172321;
+  color: #ffffff;
+}
+
+.content-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  padding: 26px;
+  border: 1px solid #d9dfd5;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.wide {
+  width: 100%;
+}
+
+.section-title {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  margin-bottom: 18px;
+}
+
+.section-title span {
+  color: #f05d4f;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: #172321;
+  font-size: 1.08rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 900px;
+  margin: 0;
+  color: #384743;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.feature-card {
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid #e1e5dc;
+  border-radius: 8px;
+  background: #fffdf7;
+}
+
+.feature-card h4 {
+  margin: 0 0 10px;
+  color: #172321;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #53615d;
+  line-height: 1.7;
+}
+
+.detail-list {
+  display: grid;
+  gap: 18px;
+}
+
+.detail-group h3 {
+  margin: 0 0 12px;
+  color: #2e4b45;
+  font-size: 1.06rem;
+}
+
+.detail-group ul,
+.checklist {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-group li,
+.checklist li {
+  position: relative;
+  padding: 13px 14px 13px 40px;
+  border: 1px solid #e1e5dc;
+  border-radius: 8px;
+  background: #fffdf7;
+  color: #384743;
+  line-height: 1.55;
+}
+
+.detail-group li::before {
+  position: absolute;
+  top: 19px;
+  left: 17px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94d2bd;
+  content: "";
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-left: 14px;
+}
+
+.checklist svg {
+  flex: 0 0 auto;
+  color: #2f9b73;
+}
+
+.code-frame {
+  overflow: hidden;
+  border: 1px solid #0f1817;
+  border-radius: 8px;
+  background: #101817;
+  color: #f5f1e8;
+}
+
+.code-example-list {
+  display: grid;
+  gap: 18px;
+}
+
+.code-example {
+  display: grid;
+  gap: 12px;
+}
+
+.code-example-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.code-example-copy h3 {
+  margin: 0;
+  color: #172321;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.code-example-copy p {
+  max-width: 860px;
+  margin: 0;
+  color: #53615d;
+  line-height: 1.7;
+}
+
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #172321;
+  color: #94d2bd;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.code-toolbar button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff8ea;
+}
+
+.code-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+pre {
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+code {
+  color: #f5f1e8;
+}
+
+.code-token.comment {
+  color: #7f9189;
+}
+
+.code-token.string {
+  color: #f6c85f;
+}
+
+.code-token.keyword {
+  color: #94d2bd;
+}
+
+.code-token.component {
+  color: #f05d4f;
+}
+
+.code-token.number {
+  color: #8ecae6;
+}
+
+.code-token.punctuation {
+  color: #c9d6cf;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #2f9b73;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.primary.done {
+  background: #a5ada8;
+  color: #ffffff;
+  cursor: default;
+}

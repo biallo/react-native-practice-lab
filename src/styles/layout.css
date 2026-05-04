@@ -1,0 +1,10 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 332px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.workspace {
+  width: min(1180px, 100%);
+  padding: 32px;
+}

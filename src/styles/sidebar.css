@@ -1,0 +1,165 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100vh;
+  padding: 28px 20px;
+  overflow-y: auto;
+  background: #172321;
+  color: #f6f7f1;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: #f05d4f;
+  color: #fff8ea;
+}
+
+.brand-block h1 {
+  margin: 3px 0 0;
+  font-size: 1.45rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #94d2bd;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progress-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.progress-panel > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #dce8df;
+  font-size: 0.9rem;
+}
+
+.progress-panel strong {
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.progress-track div {
+  height: 100%;
+  border-radius: inherit;
+  background: #f6c85f;
+  transition: width 180ms ease;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 8px;
+}
+
+.lesson-select-panel {
+  display: none;
+}
+
+.lesson-select-panel label {
+  color: #94d2bd;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lesson-select-panel select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 42px 0 13px;
+  border: 1px solid rgba(148, 210, 189, 0.45);
+  border-radius: 8px;
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, #f6c85f 50%) calc(100% - 20px) 21px / 6px 6px
+      no-repeat,
+    linear-gradient(135deg, #f6c85f 50%, transparent 50%) calc(100% - 14px) 21px / 6px 6px
+      no-repeat,
+    #243935;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.lesson-link {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  width: 100%;
+  min-height: 66px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #dbe6df;
+  text-align: left;
+}
+
+.lesson-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.lesson-link.active {
+  border-color: rgba(148, 210, 189, 0.45);
+  background: #243935;
+  color: #ffffff;
+}
+
+.lesson-state {
+  display: grid;
+  place-items: start center;
+  padding-top: 3px;
+  color: #94d2bd;
+}
+
+.lesson-link strong,
+.lesson-link em {
+  display: block;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.lesson-link strong {
+  font-size: 0.82rem;
+  color: #f6c85f;
+}
+
+.lesson-link em {
+  margin-top: 4px;
+  color: inherit;
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
