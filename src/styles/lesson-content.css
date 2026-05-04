@@ -74,9 +74,10 @@
 .lead {
   max-width: 900px;
   margin: 0;
-  color: #384743;
-  font-size: 1.05rem;
-  line-height: 1.85;
+  color: #53615d;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
 }
 
 .feature-grid {
@@ -103,6 +104,7 @@
   margin: 0;
   color: #53615d;
   line-height: 1.7;
+  white-space: pre-wrap;
 }
 
 .detail-list {

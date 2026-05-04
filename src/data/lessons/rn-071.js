@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Core',
   theme: '类型系统',
   whyItMatters:
-    '0.71 把 TypeScript 推到默认模板，意味着 RN 官方承认类型系统是移动工程的基础设施，而不是可选增强。移动端 bug 的成本通常更高：发布慢、回滚慢、设备差异多。类型可以提前约束组件 props、导航参数、原生模块返回值和样式对象。与此同时，gap 与 Web-inspired props 说明 RN 正在向 Web 心智靠近，但仍保留原生平台边界。',
+    '0.71 把 TypeScript 推到默认模板，意味着 RN 官方承认类型系统是移动工程的基础设施，而不是可选增强。\n移动端 bug 的成本通常更高：发布慢、回滚慢、设备差异多。\n类型可以提前约束组件 props、导航参数、原生模块返回值和样式对象。\n与此同时，gap 与 Web-inspired props 说明 RN 正在向 Web 心智靠近，但仍保留原生平台边界。',
   features: [
     {
       title: 'TypeScript by default',
-      body: '新项目默认使用 TS，让组件、hook、API response、navigation params 和 native module contract 都能被静态检查。对团队而言，类型是降低升级风险和跨端协作成本的共同语言。'
+      body: '新项目默认使用 TS，让组件、hook、API response、navigation params 和 native module contract 都能被静态检查。\n对团队而言，类型是降低升级风险和跨端协作成本的共同语言。'
     },
     {
       title: 'Flexbox gap',
-      body: 'gap 让列表、按钮组、表单行间距从“给每个子元素加 margin”变成父容器表达。这样更符合布局语义，也减少动态增删子元素时出现首尾 margin bug。'
+      body: 'gap 让列表、按钮组、表单行间距从“给每个子元素加 margin”变成父容器表达。\n这样更符合布局语义，也减少动态增删子元素时出现首尾 margin bug。'
     },
     {
       title: 'Web-inspired props',
-      body: 'aria-*、src、tabIndex 等属性增强，降低 Web 开发者迁移成本，也让可访问性描述更统一。但它们最终仍映射到移动端 accessibility APIs，不能假设行为与浏览器完全一致。'
+      body: 'aria-*、src、tabIndex 等属性增强，降低 Web 开发者迁移成本，也让可访问性描述更统一。\n但它们最终仍映射到移动端 accessibility APIs，不能假设行为与浏览器完全一致。'
     },
     {
       title: '样式类型边界',
-      body: 'StyleSheet 和 ViewStyle/TextStyle/ImageStyle 可以帮你发现无效属性。RN 支持的样式集合不是 CSS 全集，类型提示是避免 Web CSS 习惯误用的重要防线。'
+      body: 'StyleSheet 和 ViewStyle/TextStyle/ImageStyle 可以帮你发现无效属性。\nRN 支持的样式集合不是 CSS 全集，类型提示是避免 Web CSS 习惯误用的重要防线。'
     }
   ],
   deepDive: [

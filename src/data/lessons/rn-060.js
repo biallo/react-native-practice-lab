@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Core',
   theme: '工程化',
   whyItMatters:
-    'React Native 项目一半是 JavaScript，一半是原生工程。0.60 的意义在于把"安装一个带原生代码的库"从大量手工链接，推进到可被工具识别和自动配置的流程。它让 RN 生态更接近现代包管理体验，也让升级排查更系统：看模板差异、看 native dependency、看 Pod/Gradle 结果，而不是凭记忆修改工程文件。\n\n在 0.60 之前，安装一个带原生代码的库意味着：手动运行 react-native link，手动改 Xcode 工程文件，手动修改 settings.gradle。这导致了大量人工操作和不确定性。0.60 引入的 Autolinking 机制允许库通过 package.json 的 metadata 自动被 CLI 发现，解决了包管理和工程配置的分离问题，也为后续更复杂的工程场景（workspace、monorepo、CI/CD）奠定了基础。',
+    'React Native 项目一半是 JavaScript，一半是原生工程。\n0.60 的意义在于把"安装一个带原生代码的库"从大量手工链接，推进到可被工具识别和自动配置的流程。\n它让 RN 生态更接近现代包管理体验，也让升级排查更系统：看模板差异、看 native dependency、看 Pod/Gradle 结果，而不是凭记忆修改工程文件。\n在 0.60 之前，安装一个带原生代码的库意味着：手动运行 react-native link，手动改 Xcode 工程文件，手动修改 settings.gradle。这导致了大量人工操作和不确定性。\n0.60 引入的 Autolinking 机制允许库通过 package.json 的 metadata 自动被 CLI 发现，解决了包管理和工程配置的分离问题，也为后续更复杂的工程场景（workspace、monorepo、CI/CD）奠定了基础。',
   features: [
     {
       title: 'Autolinking',
-      body: '库可以通过 package metadata 暴露 native module 信息，CLI 在 iOS/Android 构建阶段自动发现并接入。它减少了 react-native link、手动改 Xcode project、手动改 settings.gradle 的频率，但不是魔法：Pod install、Gradle sync、平台权限配置仍然需要你理解。\n\n具体实现原理：1) 库在 package.json 的 react-native 字段或根目录 react.json 暴露其入口；2) RN CLI 在初始化时扫描 node_modules 发现这些信息；3) iOS 侧，Cocoapods 根据 Podspec 自动把源码或预编译库加入工程；4) Android 侧，Gradle plugin 根据 build.gradle 配置自动注册 modules。但权限、初始化逻辑、资源文件等仍需手动配置。'
+      body: '库可以通过 package metadata 暴露 native module 信息，CLI 在 iOS/Android 构建阶段自动发现并接入。\n它减少了 react-native link、手动改 Xcode project、手动改 settings.gradle 的频率，但是 Pod install、Gradle sync、平台权限配置仍然需要你理解。\n\n具体实现原理：\n1) 库在 package.json 的 react-native 字段或根目录 react.json 暴露其入口；\n2) RN CLI 在初始化时扫描 node_modules 发现这些信息；\n3) iOS 侧，Cocoapods 根据 Podspec 自动把源码或预编译库加入工程；\n4) Android 侧，Gradle plugin 根据 build.gradle 配置自动注册 modules。但权限、初始化逻辑、资源文件等仍需手动配置。'
     },
     {
       title: 'AndroidX 迁移',
-      body: 'AndroidX 让 Android 支持库体系进入新命名空间，也意味着旧依赖如果没迁移会出现编译冲突。学习这一段要理解 RN 项目会继承 Android 生态变动，很多"JS 没改但 Android 挂了"的问题来自原生依赖树。\n\nAndroidX 的关键问题：1) 旧命名空间是 android.support.*，新命名空间是 androidx.*；2) 如果项目里混用了旧和新库，会产生编译冲突或运行时 ClassDefNotFound；3) RN core 库从 0.60 开始使用 AndroidX，这意味着你的项目也必须升级；4) 许多三方库的老版本仍然使用旧命名空间，需要更新或替换。这是升级 RN 时最常见的卡点。'
+      body: 'AndroidX 让 Android 支持库体系进入新命名空间，也意味着旧依赖如果没迁移会出现编译冲突。\n学习这一段要理解 RN 项目会继承 Android 生态变动，很多"JS 没改但 Android 挂了"的问题来自原生依赖树。\n\nAndroidX 的关键问题：\n1) 旧命名空间是 android.support.*，新命名空间是 androidx.*；\n2) 如果项目里混用了旧和新库，会产生编译冲突或运行时 ClassDefNotFound；\n3) RN core 库从 0.60 开始使用 AndroidX，这意味着你的项目也必须升级；\n4) 许多三方库的老版本仍然使用旧命名空间，需要更新或替换。这是升级 RN 时最常见的卡点。'
     },
     {
       title: 'Upgrade Helper',
-      body: 'Upgrade Helper 把模板差异变成可审查的补丁。升级 RN 时，先比较目标版本模板，再叠加自己的业务改动，是比"删掉重建项目"更可控的方式。大型项目尤其需要记录每次 native 文件为何改变。\n\nUpgrade Helper 工作流：1) 从当前 RN 版本到目标版本的所有模板文件变化被展示；2) 你可以逐文件审查每个改动；3) 关键是理解"为什么改"——更新 Gradle 版本、更改权限配置、新增初始化代码；4) 选择性应用改动，避免覆盖自己的自定义配置。这对大型项目的稳定升级至关重要。'
+      body: 'Upgrade Helper 把模板差异变成可审查的补丁。\n升级 RN 时，先比较目标版本模板，再叠加自己的业务改动，是比"删掉重建项目"更可控的方式。\n大型项目尤其需要记录每次 native 文件为何改变。\n\nUpgrade Helper 工作流：\n1) 从当前 RN 版本到目标版本的所有模板文件变化被展示；\n2) 你可以逐文件审查每个改动；\n3) 关键是理解"为什么改"——更新 Gradle 版本、更改权限配置、新增初始化代码；\n4) 选择性应用改动，避免覆盖自己的自定义配置。这对大型项目的稳定升级至关重要。'
     },
     {
       title: '原生依赖成为一等公民',
-      body: '从这一阶段开始，学习 RN 不能只停留在 npm install。你需要知道 JS package、CocoaPods、Gradle、平台权限、build cache 和 CI 环境如何互相影响。\n\n实际工程中需要理解：1) package.json 的 dependencies 和 native 依赖不是 1:1 的，一个 npm 包可能有多个 native dependencies；2) CocoaPods 的版本冲突解决逻辑和 npm 不同；3) Gradle 依赖的 transitive dependency resolution 可能导致意外升级；4) CI 环境的 build cache 配置不当会导致本地能跑、CI 失败；5) 平台权限在打包时需要明确声明。'
+      body: '从这一阶段开始，学习 RN 不能只停留在 npm install。\n你需要知道 JS package、CocoaPods、Gradle、平台权限、build cache 和 CI 环境如何互相影响。\n\n实际工程中需要理解：\n1) package.json 的 dependencies 和 native 依赖不是 1:1 的，一个 npm 包可能有多个 native dependencies；\n2) CocoaPods 的版本冲突解决逻辑和 npm 不同；\n3) Gradle 依赖的 transitive dependency resolution 可能导致意外升级；\n4) CI 环境的 build cache 配置不当会导致本地能跑、CI 失败；\n5) 平台权限在打包时需要明确声明。'
     }
   ],
   deepDive: [

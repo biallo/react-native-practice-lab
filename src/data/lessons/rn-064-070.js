@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Performance',
   theme: '运行时',
   whyItMatters:
-    'Hermes 把 JavaScript 引擎从"可替换的运行时细节"变成 RN 性能路线的核心部分。它面向移动端启动、内存和字节码加载优化；当它逐步覆盖 iOS 并成为默认引擎后，RN 项目的性能基线发生了变化。学习这一段要理解：性能不是只靠少写 render，JS 引擎、bundle 形式、调试方式、构建模式都会影响用户感知。\n\nHermes 的核心创新包括：1) 字节码预编译：在构建时把 JS 编译成字节码，运行时直接加载，避免解析成本；2) 低内存占用：字节码更紧凑，GC 算法针对移动设备优化；3) 更小的 bundle 体积：字节码可以被优化和压缩；4) 快速启动：无需 JIT 预热，启动快速且稳定。这些特性对移动应用至关重要，因为用户不会容忍超过 3 秒的启动时间。',
+    'Hermes 把 JavaScript 引擎从"可替换的运行时细节"变成 RN 性能路线的核心部分。\n它面向移动端启动、内存和字节码加载优化；当它逐步覆盖 iOS 并成为默认引擎后，RN 项目的性能基线发生了变化。\n学习这一段要理解：性能不是只靠少写 render，JS 引擎、bundle 形式、调试方式、构建模式都会影响用户感知。\n\nHermes 的核心创新包括：\n1) 字节码预编译：在构建时把 JS 编译成字节码，运行时直接加载，避免解析成本；\n2) 低内存占用：字节码更紧凑，GC 算法针对移动设备优化；\n3) 更小的 bundle 体积：字节码可以被优化和压缩；\n4) 快速启动：无需 JIT 预热，启动快速且稳定。这些特性对移动应用至关重要，因为用户不会容忍超过 3 秒的启动时间。',
   features: [
     {
       title: 'Hermes on iOS',
-      body: '0.64 让 iOS 也能使用 Hermes，减少 Android 与 iOS 在 JS 引擎上的差异。跨平台行为更一致后，团队可以用更统一的方式分析启动、内存和 runtime bug。\n\n这个变化的意义：1) 之前 Android 用 Hermes、iOS 用 JSC 导致行为差异，比如某个 JS bug 只在 Android 上出现；2) 现在双平台都能用 Hermes，一致的运行环境更易调试；3) iOS 的性能基线提高，启动时间缩短；4) Hermes 的工具链（bytecode 编译、内存分析）可以跨平台应用。'
+      body: '0.64 让 iOS 也能使用 Hermes，减少 Android 与 iOS 在 JS 引擎上的差异。\n跨平台行为更一致后，团队可以用更统一的方式分析启动、内存和 runtime bug。\n\n这个变化的意义：\n1) 之前 Android 用 Hermes、iOS 用 JSC 导致行为差异，比如某个 JS bug 只在 Android 上出现；\n2) 现在双平台都能用 Hermes，一致的运行环境更易调试；\n3) iOS 的性能基线提高，启动时间缩短；\n4) Hermes 的工具链（bytecode 编译、内存分析）可以跨平台应用。'
     },
     {
       title: 'Hermes 默认启用',
-      body: '0.70 之后 Hermes 成为默认选择，新项目默认获得字节码预编译和移动端运行时优化。默认值很重要：它让生态库、调试工具和性能分析都围绕 Hermes 作为主路径演进。\n\n默认启用带来的影响：1) 用户期望 RN 应用的启动速度基准提高；2) 库开发者需要在 Hermes 下测试，包括 native 模块的兼容性；3) 调试链路改变，Remote JS Debugging 不再等同于真实运行环境；4) 优化策略改变，比如原来靠 JIT 预热的工作流不再适用。'
+      body: '0.70 之后 Hermes 成为默认选择，新项目默认获得字节码预编译和移动端运行时优化。\n默认值很重要：它让生态库、调试工具和性能分析都围绕 Hermes 作为主路径演进。\n\n默认启用带来的影响：\n1) 用户期望 RN 应用的启动速度基准提高；\n2) 库开发者需要在 Hermes 下测试，包括 native 模块的兼容性；\n3) 调试链路改变，Remote JS Debugging 不再等同于真实运行环境；\n4) 优化策略改变，比如原来靠 JIT 预热的工作流不再适用。'
     },
     {
       title: '调试链路变化',
-      body: '使用 Hermes 时，调试不再等同于"把 JS 放到 Chrome 里跑"。旧 Remote JS Debugging 会改变运行环境，可能掩盖真实设备上的 Hermes 行为。后续 DevTools 路线就是为了在更接近真实 runtime 的环境里调试。\n\n调试链路的关键差异：1) Hermes 的字节码调试：你实际在调试字节码，而不是源代码（需要 source map）；2) Hot Module Replacement 在 Hermes 下可能失效或行为不同；3) 性能分析工具需要适配 Hermes 的内存模型；4) Chrome DevTools 的 performance timeline 可能无法准确反映 Hermes 上的时间分布。'
+      body: '使用 Hermes 时，调试不再等同于"把 JS 放到 Chrome 里跑"。\n旧 Remote JS Debugging 会改变运行环境，可能掩盖真实设备上的 Hermes 行为。\n后续 DevTools 路线就是为了在更接近真实 runtime 的环境里调试。\n\n调试链路的关键差异：\n1) Hermes 的字节码调试：你实际在调试字节码，而不是源代码（需要 source map）；\n2) Hot Module Replacement 在 Hermes 下可能失效或行为不同；\n3) 性能分析工具需要适配 Hermes 的内存模型；\n4) Chrome DevTools 的 performance timeline 可能无法准确反映 Hermes 上的时间分布。'
     },
     {
       title: '性能测量基线',
-      body: 'Hermes 对启动和内存有帮助，但业务代码仍可能阻塞 JS 线程。性能分析要区分引擎收益、bundle 体积、首屏渲染、网络等待和主线程布局压力。\n\n性能分解很重要：1) 冷启动时间 = bundle load + JS 初始化 + 首屏render + native view layout。每个环节有不同的优化策略；2) Hermes 主要优化前两项，其他需要业务代码优化；3) 内存峰值可能在启动、滚动或加载大数据时出现，需要针对场景分析；4) 没有量化测量的优化都是盲目的，需要建立完整的性能监控。'
+      body: 'Hermes 对启动和内存有帮助，但业务代码仍可能阻塞 JS 线程。\n性能分析要区分引擎收益、bundle 体积、首屏渲染、网络等待和主线程布局压力。\n\n性能分解很重要：\n1) 冷启动时间 = bundle load + JS 初始化 + 首屏render + native view layout。每个环节有不同的优化策略；\n2) Hermes 主要优化前两项，其他需要业务代码优化；\n3) 内存峰值可能在启动、滚动或加载大数据时出现，需要针对场景分析；\n4) 没有量化测量的优化都是盲目的，需要建立完整的性能监控。'
     }
   ],
   deepDive: [

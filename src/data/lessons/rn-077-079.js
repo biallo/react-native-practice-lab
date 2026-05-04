@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Tooling',
   theme: '效率',
   whyItMatters:
-    '0.77-0.79 展示了 RN 成熟期的升级方向：不只是大架构变化，也持续补齐样式表达、React 版本能力和工具链速度。对真实项目来说，这些改进会影响 UI 还原、React API 可用性、Metro 冷启动、CI 时间和现代包兼容性。学习这一段要培养“版本升级收益评估”能力：哪些收益直接改善业务，哪些需要模板和依赖配合，哪些会暴露潜在兼容问题。',
+    '0.77-0.79 展示了 RN 成熟期的升级方向：不只是大架构变化，也持续补齐样式表达、React 版本能力和工具链速度。\n对真实项目来说，这些改进会影响 UI 还原、React API 可用性、Metro 冷启动、CI 时间和现代包兼容性。\n学习这一段要培养“版本升级收益评估”能力：哪些收益直接改善业务，哪些需要模板和依赖配合，哪些会暴露潜在兼容问题。',
   features: [
     {
       title: '新样式能力',
-      body: '0.77 带来 display: contents、boxSizing、mixBlendMode、outline 等样式补齐。它们让 RN 更容易表达复杂 UI，但每个样式都要理解平台支持和降级方式，尤其是 Android/iOS 渲染差异。'
+      body: '0.77 带来 display: contents、boxSizing、mixBlendMode、outline 等样式补齐。\n它们让 RN 更容易表达复杂 UI，但每个样式都要理解平台支持和降级方式，尤其是 Android/iOS 渲染差异。'
     },
     {
       title: 'React 19',
-      body: '0.78 引入 React 19，让 RN 可以逐步获得新的 React 能力、错误栈和并发相关改进。但 RN 与 React DOM 的支持节奏不同，学习时要区分 React 核心特性、RN renderer 支持和框架集成。'
+      body: '0.78 引入 React 19，让 RN 可以逐步获得新的 React 能力、错误栈和并发相关改进。\n但 RN 与 React DOM 的支持节奏不同，学习时要区分 React 核心特性、RN renderer 支持和框架集成。'
     },
     {
       title: 'Metro deferred hashing',
-      body: '0.79 中 Metro 使用 deferred hashing 改善启动速度，尤其对大项目和 monorepo 更明显。工具链速度提升会直接减少开发等待和 CI 成本，是团队生产力的一部分。'
+      body: '0.79 中 Metro 使用 deferred hashing 改善启动速度，尤其对大项目和 monorepo 更明显。\n工具链速度提升会直接减少开发等待和 CI 成本，是团队生产力的一部分。'
     },
     {
       title: 'JSC 社区化与调试迁移',
-      body: '0.79/0.80 附近，JSC 支持和 Remote JS Debugging 的路线都发生变化。项目要把默认引擎、调试工具和三方库兼容性纳入升级计划。'
+      body: '0.79/0.80 附近，JSC 支持和 Remote JS Debugging 的路线都发生变化。\n项目要把默认引擎、调试工具和三方库兼容性纳入升级计划。'
     }
   ],
   deepDive: [

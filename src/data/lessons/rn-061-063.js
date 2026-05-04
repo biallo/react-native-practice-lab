@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Core',
   theme: '调试',
   whyItMatters:
-    '移动端开发最贵的成本之一是反馈循环：安装、启动、复现路径、读日志都比 Web 更慢。0.61-0.63 这一段的重点是让“修改代码 -> 看到结果 -> 定位错误”更可靠。Fast Refresh 改善 UI 迭代，LogBox 降低错误噪音。它们看起来是开发体验功能，但本质上会改变团队调试习惯和代码组织方式。',
+    '移动端开发最贵的成本之一是反馈循环：安装、启动、复现路径、读日志都比 Web 更慢。\n0.61-0.63 这一段的重点是让“修改代码 -> 看到结果 -> 定位错误”更可靠。\nFast Refresh 改善 UI 迭代，LogBox 降低错误噪音。\n它们看起来是开发体验功能，但本质上会改变团队调试习惯和代码组织方式。',
   features: [
     {
       title: 'Fast Refresh',
-      body: 'Fast Refresh 在组件边界可识别时尽量保留 React state，让你改样式、文案和渲染逻辑时不用反复走登录/导航流程。它鼓励把副作用收进组件或 hook 中，减少模块顶层不可控副作用。'
+      body: 'Fast Refresh 在组件边界可识别时尽量保留 React state，让你改样式、文案和渲染逻辑时不用反复走登录/导航流程。\n它鼓励把副作用收进组件或 hook 中，减少模块顶层不可控副作用。'
     },
     {
       title: 'LogBox',
-      body: 'LogBox 重新组织 warning 和 error 的展示方式，突出可操作信息和调用栈。对团队来说，warning 不应该长期堆积；升级前清理 warning，往往能提前发现未来会变成 breaking change 的问题。'
+      body: 'LogBox 重新组织 warning 和 error 的展示方式，突出可操作信息和调用栈。\n对团队来说，warning 不应该长期堆积；升级前清理 warning，往往能提前发现未来会变成 breaking change 的问题。'
     },
     {
       title: '更好的错误边界体验',
-      body: 'RN 的错误可能来自 JS、Metro、native build、native runtime 或设备环境。更好的红屏、黄屏和堆栈信息让你能先判断错误层级，再决定该看 JS stack、Metro output、Xcode/Logcat 还是 crash report。'
+      body: 'RN 的错误可能来自 JS、Metro、native build、native runtime 或设备环境。\n更好的红屏、黄屏和堆栈信息让你能先判断错误层级，再决定该看 JS stack、Metro output、Xcode/Logcat 还是 crash report。'
     },
     {
       title: '调试纪律',
-      body: 'Fast Refresh 不是完整重启。修改初始化逻辑、模块级缓存、原生配置或环境变量时，你仍然需要 reload、重装应用，甚至清理构建缓存。'
+      body: 'Fast Refresh 不是完整重启。\n修改初始化逻辑、模块级缓存、原生配置或环境变量时，你仍然需要 reload、重装应用，甚至清理构建缓存。'
     }
   ],
   deepDive: [

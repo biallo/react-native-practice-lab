@@ -7,23 +7,23 @@ export const lesson = {
   level: 'Architecture',
   theme: '稳定 API',
   whyItMatters:
-    '0.80-0.82 是 RN 从“兼容历史灵活性”走向“稳定公共边界”的关键阶段。深层导入告警和 Strict TypeScript API 是在收紧 JS API；0.82 New Architecture only 则是在收紧架构边界。对于长期维护项目，这意味着升级不再只是改版本号，而是要清理内部 API 依赖、验证新架构兼容、让类型和模块入口都对齐官方公共 contract。',
+    '0.80-0.82 是 RN 从“兼容历史灵活性”走向“稳定公共边界”的关键阶段。\n深层导入告警和 Strict TypeScript API 是在收紧 JS API。\n0.82 New Architecture only 则是在收紧架构边界。\n对于长期维护项目，这意味着升级不再只是改版本号，而是要清理内部 API 依赖、验证新架构兼容、让类型和模块入口都对齐官方公共 contract。',
   features: [
     {
       title: 'Deep imports deprecation',
-      body: '从 react-native/Libraries/* 导入内部文件会产生告警，因为这些路径不是稳定 API。过去这样做可能解决短期问题，但会把应用绑到 RN 内部目录结构上，升级时非常脆弱。'
+      body: '从 react-native/Libraries/* 导入内部文件会产生告警，因为这些路径不是稳定 API。\n过去这样做可能解决短期问题，但会把应用绑到 RN 内部目录结构上，升级时非常脆弱。'
     },
     {
       title: 'Strict TypeScript API',
-      body: 'Strict TypeScript API 让类型更接近官方想稳定暴露的 JS API。它不只是“类型更严格”，而是在帮助应用提前发现依赖私有 API、错误类型假设和未来不可用入口。'
+      body: 'Strict TypeScript API 让类型更接近官方想稳定暴露的 JS API。\n它不只是“类型更严格”，而是在帮助应用提前发现依赖私有 API、错误类型假设和未来不可用入口。'
     },
     {
       title: 'New Architecture only',
-      body: '0.82 开始 New Architecture 成为唯一架构，Legacy Architecture 开关不再提供逃生门。迁移工作必须在升级前完成，尤其是三方 native modules 和自研 native components。'
+      body: '0.82 开始 New Architecture 成为唯一架构，Legacy Architecture 开关不再提供逃生门。\n迁移工作必须在升级前完成，尤其是三方 native modules 和自研 native components。'
     },
     {
       title: 'DOM Node APIs',
-      body: 'native component refs 开始提供部分类 DOM 节点 API，例如树遍历和布局测量。这让 Web 与 RN 的部分底层模型靠近，但它仍然不是浏览器 DOM，能力范围和性能成本都要按 RN 文档理解。'
+      body: 'native component refs 开始提供部分类 DOM 节点 API，例如树遍历和布局测量。\n这让 Web 与 RN 的部分底层模型靠近，但它仍然不是浏览器 DOM，能力范围和性能成本都要按 RN 文档理解。'
     },
     {
       title: 'Android debugOptimized',
