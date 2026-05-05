@@ -23,7 +23,7 @@ export const lesson = {
     },
     {
       title: 'Fabric 与 TurboModules',
-      body: 'Fabric 是新 renderer，负责 native UI tree 与 React tree 的协作。\nTurboModules 是新 native module 系统，让模块按需加载并通过更清晰的类型 contract 暴露能力。\n\n两者的关键作用：\n1) Fabric 通过 Shadow Tree 在 JS thread 做 layout，再批量 commit 给 main thread，降低主线程压力；\n2) Fabric 支持 React Concurrent 特性，比如 Suspense、transition；\n3) TurboModules 通过 TypeScript/Flow 定义接口，编译时生成胶水代码，减少运行时开销；\n4) TurboModules 按需加载，只有调用时才被实例化，减少启动成本。'
+      body: 'Fabric 是新 renderer，负责 native UI tree 与 React tree 的协作。\nTurboModules 是新 native module 系统，让模块按需加载并通过更清晰的类型 contract 暴露能力。\n\n两者的关键作用：\n1) Fabric 通过 Shadow Tree 在 JS thread 做 layout，再批量 commit 给 main thread，降低主线程压力；\n2) Fabric 支持 React Concurrent 特性，比如 Suspense、transition；\n3) TurboModules 通过 TypeScript/Flow 定义接口，编译时生成 Glue Code，减少运行时开销；\n4) TurboModules 按需加载，只有调用时才被实例化，减少启动成本。'
     }
   ],
   deepDive: [

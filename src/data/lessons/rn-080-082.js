@@ -7,7 +7,7 @@ export const lesson = {
   level: 'Architecture',
   theme: '稳定 API',
   whyItMatters:
-    '0.80-0.82 是 RN 从“兼容历史灵活性”走向“稳定公共边界”的关键阶段。\n深层导入告警和 Strict TypeScript API 是在收紧 JS API。\n0.82 New Architecture only 则是在收紧架构边界。\n对于长期维护项目，这意味着升级不再只是改版本号，而是要清理内部 API 依赖、验证新架构兼容、让类型和模块入口都对齐官方公共 contract。',
+    '0.80-0.82 是 RN 从“兼容历史灵活性”走向“稳定公共边界”的关键阶段。\n深层导入告警和 Strict TypeScript API 是在收紧 JS API。\n0.82 New Architecture only 则是在收紧架构边界。\n对于长期维护项目，这意味着升级不再只是改版本号，而是要清理内部 API 依赖、验证新架构兼容、让类型和模块入口都对齐官方公共 contract。\n同时，0.80-0.82 也引入了 DOM Node API、Android debugOptimized 等新能力，升级前要评估哪些收益直接改善业务，哪些需要配合升级计划和依赖更新才能实现。',
   features: [
     {
       title: 'Deep imports deprecation',
@@ -57,7 +57,7 @@ import { Alert } from 'react-native';`,
     {
       title: '清理 deep imports',
       description:
-        '这类改动看起来小，但它是升级 0.80+ 的基础卫生。公共入口才是 RN 承诺维护的 API 边界。',
+        '这类改动看起来小，但它是升级 0.80+ 的基础。公共入口才是 RN 承诺维护的 API 边界。',
       code: `// Before: 依赖内部路径，升级风险高。
 import { Alert } from 'react-native/Libraries/Alert/Alert';
 

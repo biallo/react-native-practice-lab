@@ -36,7 +36,7 @@ export const lesson = {
       ]
     },
     {
-      title: 'React 与 Metro 升级心智',
+      title: 'React 与 Metro 升级的连锁反应',
       items: [
         'React 版本升级不等于 Web 示例可以照搬到 RN；要看 RN renderer 是否支持对应能力。',
         'Metro 变快不会修复依赖结构问题。exports/imports 稳定后，深层导入和非标准包结构更容易暴露问题。',
