@@ -28,7 +28,7 @@ export const lesson = {
   ],
   deepDive: [
     {
-      title: 'Resolver 心智',
+      title: 'Resolver 的工作原理',
       items: [
         'Metro resolver 负责把 import specifier 解析成真实文件，并考虑平台后缀、exports、node_modules 和 watch roots。',
         '同一个包在 Node、Web bundler、Metro 中可能解析到不同入口。遇到“只有 RN 报错”时，先查实际入口。',
