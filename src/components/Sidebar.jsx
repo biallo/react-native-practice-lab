@@ -38,11 +38,8 @@ export function Sidebar({ activeLesson, completedCount, lessons, onLessonSelect,
         <label htmlFor="lesson-select">选择课程</label>
         <select id="lesson-select" onChange={handleLessonChange} value={activeLesson.id}>
           {lessons.map((lesson) => {
-            const doneMark = progress[lesson.id] ? '✓ ' : '';
-
             return (
               <option key={lesson.id} value={lesson.id}>
-                {doneMark}
                 {lesson.version} · {lesson.title}
               </option>
             );
